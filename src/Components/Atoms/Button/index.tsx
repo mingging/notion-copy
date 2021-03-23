@@ -12,19 +12,19 @@ interface buttonProps extends MuiButtonProps {
 
 const Button = ({children, buttonType = 'primary', ...props}: buttonProps) => {
     return (
-        <MuiButton css={(theme: any) => buttonTypeStyle[buttonType](theme)} {...props}>
+        <MuiButton css={() => buttonTypeStyle[buttonType]()} {...props}>
             {children}
         </MuiButton>
     )
 }
 
 const buttonTypeStyle = {
-    primary: (theme: Theme) => css`
+    primary: () => css`
       &.MuiButtonBase-root {
         background: #e16259;
       }
     `,
-    secondary: (theme: Theme) => css`
+    secondary: () => css`
       &.MuiButtonBase-root {
         background: #fdf5f2;
       }
